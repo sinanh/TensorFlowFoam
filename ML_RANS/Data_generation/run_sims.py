@@ -2,6 +2,10 @@ import argparse
 import numpy as np
 from distutils.dir_util import copy_tree
 import os 
+import pathlib
+
+
+PATH = pathlib.Path(__file__).parent.absolute()
 
 parser = argparse.ArgumentParser(description='Changes velocity(U) in inlet condition.')
 parser.add_argument('start', metavar='s', type=float, help='start velocity')
@@ -12,17 +16,20 @@ args = parser.parse_args()
 
 case_num = 0
 
+# Create a design directory
+case_name = input("enter case name:")
+os.mkdir(case_name)
 
 for i in np.arange(args.start, args.finish, args.step):
     #Open a folder for each case, and copy org to case[i]
     # Case[i]
     case_num += 1
-    case_dir = f"Case{case_num}"
+    case_dir = f"{case_name}/Case{case_num}"
+    os.system("pwd")
     copy_tree("org/", case_dir)
 
 
     # Change U
-
     print(f"changing velocity to {i}")
     f = open(case_dir+"/0/U","r")
     lines = f.readlines()
@@ -43,7 +50,7 @@ for i in np.arange(args.start, args.finish, args.step):
     os.system("simpleFoam | tee log.simpleFoam")
 
     # change to parent directory
-    os.chdir('..')
+    os.chdir(PATH)
   
 
     
