@@ -14,11 +14,10 @@ parser.add_argument('step', metavar='t', type=float, help='finish velocity')
 
 args = parser.parse_args()
 
+
 case_num = 0
 
-# Create a design directory
-case_name = input("enter case name:")
-os.mkdir(case_name)
+
 
 for i in np.arange(args.start, args.finish, args.step):
     #Open a folder for each case, and copy org to case[i]
@@ -53,6 +52,10 @@ for i in np.arange(args.start, args.finish, args.step):
     os.chdir(PATH)
   
 
+if __name__ == '__main__':
+    # Create a design directory
+    case_name = input("enter case name:")
+    os.mkdir(case_name)
     
  
 

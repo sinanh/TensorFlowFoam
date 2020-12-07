@@ -6,6 +6,7 @@ def replaceZeroes(data):
     data[data == 0] = min_nonzero
     return data
 
+LINE = 21
 
 def read_scalar(filename):
     # Read file
@@ -13,8 +14,8 @@ def read_scalar(filename):
     lines_1 = file.readlines()
     file.close()
 
-    num_cells_internal = int(lines_1[20].strip('\n'))
-    lines_1 = lines_1[22:22+num_cells_internal]
+    num_cells_internal = int(lines_1[LINE].strip('\n'))
+    lines_1 = lines_1[LINE+2:LINE+2+num_cells_internal]
 
     for i in range(len(lines_1)):
         lines_1[i] = lines_1[i].strip('\n')
@@ -30,8 +31,8 @@ def read_vector(filename): # Only x,y components
     lines_1 = file.readlines()
     file.close()
 
-    num_cells_internal = int(lines_1[20].strip('\n'))
-    lines_1 = lines_1[22:22+num_cells_internal]
+    num_cells_internal = int(lines_1[LINE].strip('\n'))
+    lines_1 = lines_1[LINE+2:LINE+2+num_cells_internal]
 
     for i in range(len(lines_1)):
         lines_1[i] = lines_1[i].strip('\n')
@@ -51,20 +52,20 @@ if __name__ == '__main__':
     U = read_vector('U_1')
     nut = read_scalar('nut_1')
     y = read_scalar('yWall_1')
-    cx = read_scalar('cx_1')
-    cy = read_scalar('cy_1')
+    cx = read_scalar('Cx_1')
+    cy = read_scalar('Cy_1')
     # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*2.0
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
     total_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
 
     # Read Case 2
     U = read_vector('U_2')
     nut = read_scalar('nut_2')
     y = read_scalar('yWall_2')
-    cx = read_scalar('cx_2')
-    cy = read_scalar('cy_2')
+    cx = read_scalar('Cx_2')
+    cy = read_scalar('Cy_2')
     # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.5
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
     temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
     total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
 
@@ -72,10 +73,10 @@ if __name__ == '__main__':
     U = read_vector('U_3')
     nut = read_scalar('nut_3')
     y = read_scalar('yWall_3')
-    cx = read_scalar('cx_3')
-    cy = read_scalar('cy_3')
+    cx = read_scalar('Cx_3')
+    cy = read_scalar('Cy_3')
     # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.5
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
     temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
     total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
 
@@ -83,10 +84,10 @@ if __name__ == '__main__':
     U = read_vector('U_4')
     nut = read_scalar('nut_4')
     y = read_scalar('yWall_4')
-    cx = read_scalar('cx_4')
-    cy = read_scalar('cy_4')
+    cx = read_scalar('Cx_4')
+    cy = read_scalar('Cy_4')
     # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.75
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
     temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
     total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
 
@@ -94,10 +95,10 @@ if __name__ == '__main__':
     U = read_vector('U_5')
     nut = read_scalar('nut_5')
     y = read_scalar('yWall_5')
-    cx = read_scalar('cx_5')
-    cy = read_scalar('cy_5')
+    cx = read_scalar('Cx_5')
+    cy = read_scalar('Cy_5')
     # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.75
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
     temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
     total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
 
@@ -105,8 +106,8 @@ if __name__ == '__main__':
     U = read_vector('U_6')
     nut = read_scalar('nut_6')
     y = read_scalar('yWall_6')
-    cx = read_scalar('cx_6')
-    cy = read_scalar('cy_6')
+    cx = read_scalar('Cx_6')
+    cy = read_scalar('Cy_6')
     # create array of Re information
     h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
     temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)

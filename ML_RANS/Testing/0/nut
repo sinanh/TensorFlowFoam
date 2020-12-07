@@ -1,11 +1,10 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v1812                                 |
-|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
-
 FoamFile
 {
     version     2.0;
@@ -39,11 +38,12 @@ boundaryField
         type            symmetryPlane;
     }
 
-    "(upperWall|lowerWall)"
+   "(upperWall|lowerWall)"
     {
-        type           fixedValue;  // nutUSpaldingWallFunction; //nutUBlendedWallFunction;
+      type           fixedValue;  // nutUSpaldingWallFunction; //nutUBlendedWallFunction;
       value        uniform 0;
     }
+
 
     "(front|back)"
     {
@@ -53,4 +53,3 @@ boundaryField
 
 
 // ************************************************************************* //
-
