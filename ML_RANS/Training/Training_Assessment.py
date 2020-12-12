@@ -6,6 +6,7 @@ import tensorflow as tf
 from sklearn.externals import joblib
 import matplotlib.cm as cm
 
+
 # Fixing paths
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0,HERE)
@@ -72,6 +73,7 @@ if __name__ == '__main__':
     plt.xlim((true_op[:,0].min(),true_op[:,0].max()))
     plt.ylim((true_op[:,0].min(),true_op[:,0].max()))
     plt.show()
+    plt.savefig("fig1.png")
 
     # Plot of the histogram if truth and predictions
     r_min = total_data[:,-1].flatten().min()
@@ -82,3 +84,4 @@ if __name__ == '__main__':
     plt.hist(true_op[:,0].flatten(),range=(r_min,r_max),bins=30,label='True',alpha=0.5)
     plt.legend()
     plt.show()
+    plt.savefig("fig2.png")
