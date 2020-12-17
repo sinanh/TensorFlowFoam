@@ -1,8 +1,8 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v1812                                 |
-|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
@@ -20,27 +20,24 @@ solvers
     p
     {
         solver          GAMG;
-        tolerance       1e-06;
-        relTol          0.01;
+        tolerance       1e-10;
+        relTol          0.1;
         smoother        DICGaussSeidel;
     }
 
-    "(U|k|epsilon|nuTilda|omega)"
+    "(U|nuTilda|k|epsilon|omega)"
     {
-        solver          PBiCG;//smoothSolver;
-	preconditioner  DILU;
-        //smoother      symGaussSeidel;
-        tolerance       1e-08;
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-10;
         relTol          0.1;
     }
 
-    Phi
-    {
-        solver          GAMG;
-        smoother        DIC;
+//needed for potentialFoam
 
-        tolerance       1e-06;
-        relTol          0.01;
+	 Phi
+    {
+        $p;
     }
 }
 
@@ -51,34 +48,30 @@ SIMPLE
 
     residualControl
     {
-        p               1e-3;
+        p               1e-4;
         U               1e-6;
-
-//        "(k|nuTilda|epsilon|omega|f|v2)" 1e-5;
-    }
-}
-
-relaxationFactors
-{
-    fields
-    {
-	p 	0.9;		
-    }	
-
-    equations
-    {
-        U               0.9; //0.9
-        nuTilda		0.3;
-	
-	//".*"            0.5; //0.7
+        "(k|nuTilda|epsilon|omega|f|v2)" 1e-5;
     }
 }
 
 potentialFlow
 {
-    nNonOrthogonalCorrectors 3;
+	nNonOrthogonalCorrectors 10;
+}
+
+relaxationFactors
+{
+	fields
+	{
+		p	0.3;
+	}	
+
+    equations
+    {
+        U               0.9;
+        ".*"            0.5;
+    }
 }
 
 
 // ************************************************************************* //
-

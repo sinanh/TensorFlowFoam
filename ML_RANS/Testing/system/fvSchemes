@@ -1,8 +1,8 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v1812                                 |
-|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
@@ -29,11 +29,10 @@ divSchemes
 {
     default         none;
     div(phi,U)      bounded Gauss LUST grad(U);
-    div(phi,nuTilda) bounded Gauss linearUpwind grad(nuTilda);
-
     div(phi,k)      bounded Gauss limitedLinear 1;
-    //div(phi,epsilon) bounded Gauss limitedLinear 1;
-    //div(phi,omega)  bounded Gauss limitedLinear 1;
+    div(phi,epsilon) bounded Gauss limitedLinear 1;
+    div(phi,omega)  bounded Gauss limitedLinear 1;
+    div(phi,nuTilda)  bounded Gauss limitedLinear 1;	
     div((nuEff*dev2(T(grad(U))))) Gauss linear;
 }
 
@@ -59,4 +58,3 @@ wallDist
 
 
 // ************************************************************************* //
-

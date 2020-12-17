@@ -55,7 +55,7 @@ if __name__ == '__main__':
     cx = read_scalar('Cx_1')
     cy = read_scalar('Cy_1')
     # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.127
     total_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
 
     # Read Case 2
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     cx = read_scalar('Cx_2')
     cy = read_scalar('Cy_2')
     # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.127
     temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
     total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
 
@@ -76,7 +76,7 @@ if __name__ == '__main__':
     cx = read_scalar('Cx_3')
     cy = read_scalar('Cy_3')
     # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.127
     temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
     total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
 
@@ -87,7 +87,7 @@ if __name__ == '__main__':
     cx = read_scalar('Cx_4')
     cy = read_scalar('Cy_4')
     # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.127
     temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
     total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
 
@@ -98,7 +98,7 @@ if __name__ == '__main__':
     cx = read_scalar('Cx_5')
     cy = read_scalar('Cy_5')
     # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.127
     temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
     total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
 
@@ -109,7 +109,62 @@ if __name__ == '__main__':
     cx = read_scalar('Cx_6')
     cy = read_scalar('Cy_6')
     # create array of Re information
-    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*1.25
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.127
+    temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
+    total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
+
+    # Read Case 7
+    U = read_vector('U_7')
+    nut = read_scalar('nut_7')
+    y = read_scalar('yWall_7')
+    cx = read_scalar('Cx_7')
+    cy = read_scalar('Cy_7')
+    # create array of Re information
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.127
+    temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
+    total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
+
+    # Read Case 8
+    U = read_vector('U_8')
+    nut = read_scalar('nut_8')
+    y = read_scalar('yWall_8')
+    cx = read_scalar('Cx_8')
+    cy = read_scalar('Cy_8')
+    # create array of Re information
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.127
+    temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
+    total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
+
+    # Read Case 9
+    U = read_vector('U_9')
+    nut = read_scalar('nut_9')
+    y = read_scalar('yWall_9')
+    cx = read_scalar('Cx_9')
+    cy = read_scalar('Cy_9')
+    # create array of Re information
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.127
+    temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
+    total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
+
+    # Read Case 10
+    U = read_vector('U_10')
+    nut = read_scalar('nut_10')
+    y = read_scalar('yWall_10')
+    cx = read_scalar('Cx_10')
+    cy = read_scalar('Cy_10')
+    # create array of Re information
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.127
+    temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
+    total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
+
+    # Read Case 11
+    U = read_vector('U_11')
+    nut = read_scalar('nut_11')
+    y = read_scalar('yWall_11')
+    cx = read_scalar('Cx_11')
+    cy = read_scalar('Cy_11')
+    # create array of Re information
+    h = np.ones(shape=(np.shape(U)[0],1),dtype='double')*0.127
     temp_dataset = np.concatenate((U,cx,cy,h,nut),axis=-1)
     total_dataset = np.concatenate((total_dataset,temp_dataset),axis=0)
 

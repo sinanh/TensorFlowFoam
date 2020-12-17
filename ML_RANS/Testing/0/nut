@@ -38,12 +38,11 @@ boundaryField
         type            symmetryPlane;
     }
 
-   "(upperWall|lowerWall)"
+    "(upperWall|lowerWall)"
     {
-      type           fixedValue;  // nutUSpaldingWallFunction; //nutUBlendedWallFunction;
+         type           fixedValue;  // nutUSpaldingWallFunction; //nutUBlendedWallFunction;
       value        uniform 0;
     }
-
 
     "(front|back)"
     {

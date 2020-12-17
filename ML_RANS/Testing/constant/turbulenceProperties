@@ -1,8 +1,8 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v1812                                 |
-|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
@@ -18,18 +18,17 @@ FoamFile
 simulationType RAS;
 
 RAS
+
 {
-    RASModel        ML_SA_CG; //kOmegaSST; // kEpsilon;
+
+
+
+    RASModel        SpalartAllmaras;//kOmegaSST; // kEpsilon;
 
     turbulence      on;
 
     printCoeffs     on;
-
-    widthCoeff      4.0; // Incase you use Laplace filter
-
-    hh_             1.9;
 }
 
 
 // ************************************************************************* //
-
