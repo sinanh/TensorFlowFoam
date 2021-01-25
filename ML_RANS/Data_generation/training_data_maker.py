@@ -1,5 +1,7 @@
 import numpy as np
 
+# Change the following line from U file, which keeps the number of samples
+LINE = 21
 
 def replaceZeroes(data):
     min_nonzero = np.min(data[np.nonzero(data)])
@@ -13,8 +15,8 @@ def read_scalar(filename):
     lines_1 = file.readlines()
     file.close()
 
-    num_cells_internal = int(lines_1[20].strip('\n'))
-    lines_1 = lines_1[22:22+num_cells_internal]
+    num_cells_internal = int(lines_1[LINE].strip('\n'))
+    lines_1 = lines_1[LINE+2:LINE+2+num_cells_internal]
 
     for i in range(len(lines_1)):
         lines_1[i] = lines_1[i].strip('\n')
@@ -30,8 +32,8 @@ def read_vector(filename): # Only x,y components
     lines_1 = file.readlines()
     file.close()
 
-    num_cells_internal = int(lines_1[20].strip('\n'))
-    lines_1 = lines_1[22:22+num_cells_internal]
+    num_cells_internal = int(lines_1[LINE].strip('\n'))
+    lines_1 = lines_1[LINE:LINE+num_cells_internal]
 
     for i in range(len(lines_1)):
         lines_1[i] = lines_1[i].strip('\n')
