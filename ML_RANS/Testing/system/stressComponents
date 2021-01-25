@@ -1,4 +1,6 @@
 type            turbulenceFields;
-libs            ("libfieldFunctionObjects.so");
+libs            (fieldFunctionObjects);
+
 writeControl    writeTime;
-fields         (R devReff nuEff);
+
+fields          (devReff);

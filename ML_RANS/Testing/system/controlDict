@@ -1,8 +1,8 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v1812                                 |
-|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
@@ -17,21 +17,21 @@ FoamFile
 
 application     simpleFoam_ML;
 
-startFrom       startTime; //startTime;
+startFrom       startTime;
 
 startTime       0;
 
 stopAt          endTime;
 
-endTime         10000;
+endTime         11000;
 
 deltaT          1;
 
 writeControl    timeStep;
 
-writeInterval  	1000;
+writeInterval   1000;
 
-purgeWrite      0;
+purgeWrite      2;
 
 writeFormat     ascii;
 
@@ -47,20 +47,35 @@ runTimeModifiable true;
 
 functions
 {
-   // #includeFunc "stressComponents"
-   // #includeFunc "pressureCoefficient"
-   // #includeFunc "sample"
-   // #includeFunc "sampleCp"
-   // #includeFunc "writeCellCentres"
-   // #includeFunc "wallShearStress"
+ /*   #includeFunc "stressComponents"
+    #includeFunc "pressureCoefficient"
+    #includeFunc "sample"
+    #includeFunc "sampleCp"
+    #includeFunc "writeCellCentres"
+    #includeFunc "wallShearStress"
+
+	Cp_sample
+	{
+		type                surfaceFieldValue;
+		libs				(libfieldFunctionObjects.so);
+		
+		writeControl    writeTime;
+		writeFields		true;
+		
+		surfaceFormat	raw;
+		regionType		patch;
+		name			lowerWall;
+
+		 operation               none;
+		
+		fields
+        (
+            cp
+           // yPlus
+           // UnearWall
+        );
+	}*/
+
 }
 
-libs
-(
-  "ML_SA_CG.so"
-);
-
-
-
 // ************************************************************************* //
-
