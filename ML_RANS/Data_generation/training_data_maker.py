@@ -6,7 +6,9 @@ def replaceZeroes(data):
     data[data == 0] = min_nonzero
     return data
 
-LINE = 21
+# Change the line below, based on U file
+# Foundation users set it to 20, ESI users set it to 21
+LINE = 20
 
 def read_scalar(filename):
     # Read file
