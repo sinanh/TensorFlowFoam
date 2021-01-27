@@ -9,7 +9,7 @@ def replaceZeroes(data):
 # Change the line below, based on U file
 # Foundation users set it to 20, ESI users set it to 21
 # Or run this script as python3 training_data_maker.ps ESI
-if sys.argv[1] == "ESI":
+if len(sys.argv) > 1 and sys.argv[1] == "ESI":
     LINE = 21
 else:
     LINE = 20
@@ -54,7 +54,7 @@ def read_vector(filename): # Only x,y components
 if __name__ == '__main__':
     print('Velocity reader file')
 
-    heights = [2.0, 1.5, 0.5, 0.75, 1.75, 1.25]
+    heights = [0.5, 0.75, 0.9, 1.25, 1.50, 1.75, 1.90, 2.0]
     total_dataset = []
 
     # Read Cases
